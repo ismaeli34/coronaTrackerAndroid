@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">coronaTrackerAndroid</string>
+    <string name="title_home">Home</string>
+    <string name="title_country">Countries</string>
+    <string name="title_bluetooth">Bluetooth</string>
+    <string name="title_geofencing">Geofencing</string>
+</resources>
