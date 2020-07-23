@@ -1,2 +1,2 @@
 # coronaTrackerAndroid
-![](/src/assets/list.png)
+![](/app/src/main/res/drawable/homescreen.png)
