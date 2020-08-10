@@ -6,6 +6,8 @@ Users can see the lastest covid cases
 
 # screenshots
 
-![](app/src/main/res/drawable/homescreen.png)
+![](app/src/main/res/drawable/home.png)
 ![](app/src/main/res/drawable/countries.png)
+![](app/src/main/res/drawable/news.png)
+
 
