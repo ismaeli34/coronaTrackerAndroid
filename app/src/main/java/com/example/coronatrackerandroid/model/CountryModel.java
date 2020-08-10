@@ -3,7 +3,18 @@ package com.example.coronatrackerandroid.model;
 public class CountryModel {
 
 
-    private String flag,country,todayCases,deaths,todayDeaths,recovered,active,critical;
+    private String flag;
+    private String country;
+    private String todayCases;
+    private String deaths;
+    private String todayDeaths;
+    private String todayRecovereds;
+    private String todayActive;
+    private String recovered;
+    private String active;
+    private String critical;
+    private String totalDeath;
+    private String cases;
     private CountryInfo countryInfo;
 
     public CountryModel() {
@@ -81,7 +92,39 @@ public class CountryModel {
         this.critical = critical;
     }
 
-    public CountryModel(String flag, String country, String todayCases, String deaths, String todayDeaths, String recovered, String active, String critical) {
+    public String getCases() {
+        return cases;
+    }
+
+    public void setCases(String cases) {
+        this.cases = cases;
+    }
+
+    public String getTotalDeath() {
+        return totalDeath;
+    }
+
+    public void setTotalDeath(String totalDeath) {
+        this.totalDeath = totalDeath;
+    }
+
+    public String getTodayRecovereds() {
+        return todayRecovereds;
+    }
+
+    public void setTodayRecovereds(String todayRecovereds) {
+        this.todayRecovereds = todayRecovereds;
+    }
+
+    public String getTodayActive() {
+        return todayActive;
+    }
+
+    public void setTodayActive(String todayActive) {
+        this.todayActive = todayActive;
+    }
+
+    public CountryModel(String flag, String country, String todayCases, String deaths, String todayDeaths, String recovered, String active, String critical,String cases,String todayRecovereds,String todayActive) {
         this.flag = flag;
         this.country = country;
         this.todayCases = todayCases;
@@ -90,5 +133,8 @@ public class CountryModel {
         this.recovered = recovered;
         this.active = active;
         this.critical = critical;
+        this.cases = cases;
+        this.todayRecovereds = todayRecovereds;
+        this.todayActive = todayActive;
     }
 }

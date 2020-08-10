@@ -1,11 +1,15 @@
 package com.example.coronatrackerandroid.ui.countries;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -52,8 +56,45 @@ public class CountriesFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_countries, container, false);
        edtSearch= root.findViewById(R.id.editSearch);
         listView=root.findViewById(R.id.listView);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                CountryDetailsFragment countryDetailsFragment = new CountryDetailsFragment();
+                Bundle bundle = new Bundle();
+                bundle.putInt("position",position);
+                Log.d(TAG,""+position);
+                countryDetailsFragment.setArguments(bundle);
+                getFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,countryDetailsFragment)
+                        .addToBackStack(null)
+                        .commit();
+
+
+//                startActivity(new Intent(getActivity(),CountryDetailsFragment.class).putExtra("position",position));
+            }
+        });
+
         simpleArcLoader=root.findViewById(R.id.loader);
+
         fetchData();
+        edtSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                countriesAdapter.getFilter().filter(s);
+                countriesAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
         countriesViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {

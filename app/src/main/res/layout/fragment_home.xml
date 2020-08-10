@@ -14,36 +14,72 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/toggleGroup"
+            android:layout_marginLeft="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:checkedButton="@id/piechartButton"
+            app:singleSelection="true">
+
+            <Button
+                android:id="@+id/piechartButton"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                app:icon="@drawable/pie_chart_icon"
+                android:layout_height="wrap_content"
+                android:text="Pie Chart" />
+
+            <Button
+                android:id="@+id/barChartButton"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:icon="@drawable/bar_chart_icon"
+                android:text="Bar Chart" />
+
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+
+
+
+
+
+    </LinearLayout>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/pieChartCard"
         android:layout_width="match_parent"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         app:cardCornerRadius="8dp"
-        android:layout_height="200dp">
+        android:layout_height="150dp">
 
         <LinearLayout
-            android:weightSum="2"
+            android:weightSum="3"
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <org.eazegraph.lib.charts.PieChart
                 xmlns:app="http://schemas.android.com/apk/res-auto"
+                app:egLegendTextSize="10sp"
                 android:id="@+id/piechart"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_marginTop="15dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginBottom="15dp"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:padding="6dp"
                 />
 
 
             <LinearLayout
                 android:gravity="center_vertical"
-                android:layout_marginTop="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginBottom="15dp"
@@ -134,6 +170,138 @@
 
 
     </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:visibility="gone"
+        android:id="@+id/barchartCardView"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        app:cardCornerRadius="8dp"
+        android:layout_height="150dp">
+
+        <LinearLayout
+            android:weightSum="3"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <org.eazegraph.lib.charts.BarChart
+
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/barchart"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                app:egLegendTextSize="10sp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="15dp"
+                android:layout_weight="2"
+                android:padding="6dp"
+                app:egFixedBarWidth="true"
+                app:egBarWidth="20dp"
+                app:egLegendHeight="40dp"/>
+
+
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:orientation="vertical"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp">
+
+                    <View
+                        android:layout_width="15dp"
+                        android:background="@color/cases"
+                        android:layout_height="match_parent"/>
+                    <TextView
+                        android:text="Total Cases"
+                        android:paddingLeft="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"></TextView>
+
+                </LinearLayout>
+                <LinearLayout
+
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:layout_height="15dp">
+
+                    <View
+                        android:layout_width="15dp"
+                        android:background="@color/recovered"
+                        android:layout_height="match_parent"/>
+                    <TextView
+                        android:text="Recovered"
+                        android:paddingLeft="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"></TextView>
+
+                </LinearLayout>
+                <LinearLayout
+
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:layout_height="15dp">
+
+                    <View
+                        android:layout_width="15dp"
+                        android:background="@color/death"
+                        android:layout_height="match_parent"/>
+                    <TextView
+                        android:text="Deaths"
+                        android:paddingLeft="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"></TextView>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp">
+
+                    <View
+                        android:layout_width="15dp"
+                        android:background="@color/active"
+                        android:layout_height="match_parent"/>
+                    <TextView
+                        android:text="Active"
+                        android:paddingLeft="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"></TextView>
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+
+
+
+
+    </androidx.cardview.widget.CardView>
+
+
+
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -149,16 +317,415 @@
             app:arc_margin="3dp">
         </com.leo.simplearcloader.SimpleArcLoader>
 
-<!--    <androidx.cardview.widget.CardView-->
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            app:cardCornerRadius="8dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_height="80dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="match_parent">
+
+                <View
+
+                    android:background="@drawable/rounded_corner_yellow"
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"/>
+
+                <LinearLayout
+                    android:weightSum="4"
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:id="@+id/totalIcon"
+                        android:src="@drawable/world"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"></ImageView>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_weight="3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:text="TOTAL CASES"
+                            android:textColor="@color/cases"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"></TextView>
+
+
+
+
+                        <TextView
+                            android:id="@+id/tvCases"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="731.9k Total"
+                            android:textColor="@color/colorGrey1"></TextView>
+
+                    </LinearLayout>
+
+
+
+
+
+
+                </LinearLayout>
+
+
+
+
+
+
+
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            app:cardCornerRadius="8dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginBottom="10dp"
+            android:layout_height="80dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="match_parent">
+
+                <View
+
+                    android:background="@drawable/rounded_corner_red"
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"/>
+
+            <LinearLayout
+                android:weightSum="4"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:id="@+id/deathIcon"
+                    android:src="@drawable/death_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"></ImageView>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_weight="3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:text="DEATHS"
+                        android:textColor="@color/death"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"></TextView>
+
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:text="+"
+                            android:textColor="@color/death"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                        </TextView>
+                        <TextView
+                            android:id="@+id/todayDeaths"
+                            android:text="3,057"
+                            android:textColor="@color/death"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                        <TextView
+                            android:text=" Today"
+                            android:textColor="@color/death"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                        </TextView>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:text="731.9k Total"
+                        android:id="@+id/tvTotalDeath"
+                        android:textColor="@color/colorGrey1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"></TextView>
+
+                </LinearLayout>
+
+
+
+
+
+
+            </LinearLayout>
+
+
+
+
+
+
+
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            app:cardCornerRadius="8dp"
+            android:layout_marginTop="190dp"
+            android:layout_marginBottom="10dp"
+            android:layout_height="80dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="match_parent">
+
+                <View
+
+                    android:background="@drawable/rounded_corner_green"
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"/>
+
+                <LinearLayout
+                    android:weightSum="4"
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:id="@+id/recoveredIcon"
+                        android:src="@drawable/recovered_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"></ImageView>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_weight="3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:text="RECOVERED"
+                            android:textColor="@color/recovered"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"></TextView>
+
+
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:text="+"
+                                android:textColor="@color/recovered"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+                            </TextView>
+                            <TextView
+                                android:id="@+id/todayRecovered"
+                                android:text="3,057"
+                                android:textColor="@color/recovered"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+
+                            <TextView
+                                android:text=" Today"
+                                android:textColor="@color/recovered"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                            </TextView>
+
+                        </LinearLayout>
+
+
+
+
+                        <TextView
+                            android:text="12.8 M Total"
+                            android:id="@+id/tvRecovered"
+                            android:textColor="@color/colorGrey1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"></TextView>
+
+                    </LinearLayout>
+
+
+
+
+
+
+                </LinearLayout>
+
+
+
+
+
+
+
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            app:cardCornerRadius="8dp"
+            android:layout_marginTop="280dp"
+            android:layout_marginBottom="10dp"
+            android:layout_height="80dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="match_parent">
+
+                <View
+
+                    android:background="@drawable/rounded_corner_blue"
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"/>
+
+                <LinearLayout
+                    android:weightSum="4"
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:id="@+id/activeIcon"
+                        android:src="@drawable/active_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"></ImageView>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_weight="3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:text="ACTIVE"
+                            android:textColor="@color/active"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"></TextView>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:text="+"
+                                android:textColor="@color/active"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+                            </TextView>
+                            <TextView
+                                android:id="@+id/todayCases"
+                                android:text="3,057"
+                                android:textColor="@color/active"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+
+                            <TextView
+                                android:text=" Today"
+                                android:textColor="@color/active"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                            </TextView>
+
+                        </LinearLayout>
+
+
+
+
+                        <TextView
+                            android:text="12.8 M Total"
+                            android:id="@+id/tvActive"
+                            android:textColor="@color/colorGrey1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"></TextView>
+
+                    </LinearLayout>
+
+
+
+
+
+
+                </LinearLayout>
+
+
+
+
+
+
+
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+
+
+
+
+
+
+
+
+
+<!--        <androidx.cardview.widget.CardView-->
+
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_marginLeft="30dp"-->
 <!--        android:layout_marginRight="30dp"-->
 <!--        app:cardCornerRadius="8dp"-->
-<!--        android:layout_marginTop="30dp"-->
-<!--        android:layout_height="200dp">-->
+<!--        android:layout_marginTop="300dp"-->
+<!--        android:layout_marginBottom="10dp"-->
+<!--        android:layout_height="230dp">-->
 
 <!--        <LinearLayout-->
-<!--            android:background="@drawable/bg1"-->
 <!--            android:layout_width="match_parent"-->
 <!--            android:orientation="vertical"-->
 <!--            android:layout_height="match_parent">-->
@@ -178,75 +745,190 @@
 
 <!--                    <TextView-->
 <!--                        android:textSize="24dp"-->
-<!--                        android:textColor="#FFF"-->
+<!--                        android:textColor="#000"-->
+<!--                        android:layout_gravity="center"-->
 <!--                        android:layout_width="wrap_content"-->
 <!--                        android:layout_height="wrap_content"-->
-<!--                        android:text="Corona Virus Cases"-->
+<!--                        android:text="Global Statistics"-->
 <!--                        />-->
+
+
 <!--                    <LinearLayout-->
+<!--                        android:weightSum="5"-->
 <!--                        android:orientation="horizontal"-->
 <!--                        android:layout_width="match_parent"-->
 <!--                        android:layout_height="match_parent">-->
 
 <!--                        <TextView-->
 <!--                            android:textSize="16dp"-->
-<!--                            android:textColor="#FFF"-->
-<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_weight="2"-->
+<!--                            android:layout_width="0dp"-->
 <!--                            android:layout_height="wrap_content"-->
-<!--                            android:text="Total Cases:"-->
+<!--                            android:text="Total Cases :"-->
 <!--                            />-->
 <!--                        <TextView-->
-<!--                            android:id="@+id/totalCases"-->
+<!--                            android:id="@+id/tvCases"-->
 <!--                            android:textSize="16dp"-->
-<!--                            android:textColor="#FFF"-->
-<!--                            android:layout_width="wrap_content"-->
+<!--                            android:gravity="center"-->
+<!--                            android:textColor="#FF9800"-->
+<!--                            android:layout_weight="3"-->
+<!--                            android:layout_width="0dp"-->
 <!--                            android:layout_height="wrap_content"-->
-<!--                            android:text=""-->
+<!--                            android:text="0"-->
 <!--                            />-->
 <!--                    </LinearLayout>-->
 
 <!--                    <LinearLayout-->
+<!--                        android:weightSum="5"-->
 <!--                        android:orientation="horizontal"-->
 <!--                        android:layout_width="match_parent"-->
 <!--                        android:layout_height="match_parent">-->
 
 <!--                        <TextView-->
 <!--                            android:textSize="16dp"-->
-<!--                            android:textColor="#FFF"-->
-<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_width="0dp"-->
+<!--                            android:layout_weight="2"-->
 <!--                            android:layout_height="wrap_content"-->
-<!--                            android:text="Death:"-->
+<!--                            android:text="Recovered :"-->
 <!--                            />-->
 <!--                        <TextView-->
-<!--                            android:id="@+id/totalDeath"-->
+<!--                            android:id="@+id/tvRecovered"-->
 <!--                            android:textSize="16dp"-->
-<!--                            android:textColor="#FFF"-->
-<!--                            android:layout_width="wrap_content"-->
+<!--                            android:textColor="#4CAF50"-->
+<!--                            android:gravity="center"-->
+<!--                            android:layout_width="0dp"-->
+<!--                            android:layout_weight="3"-->
 <!--                            android:layout_height="wrap_content"-->
-<!--                            android:text=""-->
+<!--                            android:text="0"-->
 <!--                            />-->
 <!--                    </LinearLayout>-->
 <!--                    <LinearLayout-->
 <!--                        android:orientation="horizontal"-->
+<!--                        android:weightSum="5"-->
 <!--                        android:layout_width="match_parent"-->
 <!--                        android:layout_height="match_parent">-->
 
 <!--                        <TextView-->
 <!--                            android:textSize="16dp"-->
-<!--                            android:textColor="#FFF"-->
-<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_width="0dp"-->
+<!--                            android:layout_weight="2"-->
 <!--                            android:layout_height="wrap_content"-->
-<!--                            android:text="Recoved :"-->
+<!--                            android:text="Critical :"-->
 <!--                            />-->
 <!--                        <TextView-->
-<!--                            android:id="@+id/totalRecovered"-->
+<!--                            android:id="@+id/tvCritical"-->
 <!--                            android:textSize="16dp"-->
-<!--                            android:textColor="#FFF"-->
-<!--                            android:layout_width="wrap_content"-->
+<!--                            android:textColor="#B00020"-->
+<!--                            android:gravity="center"-->
+<!--                            android:layout_width="0dp"-->
+<!--                            android:layout_weight="3"-->
 <!--                            android:layout_height="wrap_content"-->
-<!--                            android:text=""-->
+<!--                            android:text="0"-->
 <!--                            />-->
 <!--                    </LinearLayout>-->
+
+
+<!--                    <LinearLayout-->
+<!--                        android:orientation="horizontal"-->
+<!--                        android:weightSum="5"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent">-->
+
+<!--                        <TextView-->
+<!--                            android:textSize="16dp"-->
+<!--                            android:layout_weight="2"-->
+<!--                            android:layout_width="0dp"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:text="Active :"-->
+<!--                            />-->
+<!--                        <TextView-->
+<!--                            android:id="@+id/tvActive"-->
+<!--                            android:textSize="16dp"-->
+<!--                            android:textColor="#64B5F6"-->
+<!--                            android:gravity="center"-->
+<!--                            android:layout_weight="3"-->
+<!--                            android:layout_width="0dp"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:text="0"-->
+<!--                            />-->
+<!--                    </LinearLayout>-->
+<!--                    <LinearLayout-->
+<!--                        android:orientation="horizontal"-->
+<!--                        android:weightSum="5"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent">-->
+
+<!--                        <TextView-->
+<!--                            android:textSize="16dp"-->
+<!--                            android:layout_width="0dp"-->
+<!--                            android:layout_weight="2"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:text="Total Death :"-->
+<!--                            />-->
+<!--                        <TextView-->
+<!--                            android:id="@+id/tvTotalDeath"-->
+<!--                            android:textSize="16dp"-->
+<!--                            android:textColor="#B00020"-->
+<!--                            android:gravity="center"-->
+<!--                            android:layout_width="0dp"-->
+<!--                            android:layout_weight="3"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:text="0"-->
+<!--                            />-->
+<!--                    </LinearLayout>-->
+<!--&lt;!&ndash;                    <LinearLayout&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:orientation="horizontal"&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:weightSum="5"&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:layout_height="match_parent">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                        <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:textSize="16dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:textColor="#FFF"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_width="0dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_weight="2"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:text="Today cases :"&ndash;&gt;-->
+<!--&lt;!&ndash;                            />&ndash;&gt;-->
+<!--&lt;!&ndash;                        <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:id="@+id/tvTodayCases"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:textSize="16dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:textColor="#FFF"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:gravity="center"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_width="0dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_weight="3"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:text="0"&ndash;&gt;-->
+<!--&lt;!&ndash;                            />&ndash;&gt;-->
+<!--&lt;!&ndash;                    </LinearLayout>&ndash;&gt;-->
+
+
+
+<!--&lt;!&ndash;                    <LinearLayout&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:orientation="horizontal"&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:weightSum="5"&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:layout_height="match_parent">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                        <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:textSize="16dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:textColor="#FFF"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_width="0dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_weight="2"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:text="Today Death :"&ndash;&gt;-->
+<!--&lt;!&ndash;                            />&ndash;&gt;-->
+<!--&lt;!&ndash;                        <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:id="@+id/tvTodayDeath"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:textSize="16dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:textColor="#FFF"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:gravity="center"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_width="0dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_weight="3"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:text="0"&ndash;&gt;-->
+<!--&lt;!&ndash;                            />&ndash;&gt;-->
+<!--&lt;!&ndash;                    </LinearLayout>&ndash;&gt;-->
 
 
 <!--                </LinearLayout>-->
@@ -256,7 +938,6 @@
 <!--                    android:layout_height="match_parent">-->
 
 <!--                    <ImageView-->
-<!--                        android:padding="10dp"-->
 <!--                        android:layout_width="80dp"-->
 <!--                        android:layout_alignParentRight="true"-->
 <!--                        android:layout_height="40dp"-->
@@ -270,7 +951,6 @@
 <!--                android:orientation="horizontal"-->
 <!--                android:layout_width="match_parent"-->
 <!--                android:layout_marginLeft="30dp"-->
-<!--                android:layout_marginTop="20dp"-->
 <!--                android:layout_marginRight="30dp"-->
 <!--                android:layout_height="match_parent">-->
 
@@ -293,269 +973,6 @@
 
 <!--        </LinearLayout>-->
 <!--    </androidx.cardview.widget.CardView>-->
-
-
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        app:cardCornerRadius="8dp"
-        android:layout_marginTop="15dp"
-        android:layout_height="280dp">
-
-        <LinearLayout
-            android:background="@drawable/bg2"
-            android:layout_width="match_parent"
-            android:orientation="vertical"
-            android:layout_height="match_parent">
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="30dp"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:textSize="24dp"
-                        android:textColor="#000"
-                        android:layout_gravity="center"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Corona Virus Cases"
-                        />
-
-
-                    <LinearLayout
-                        android:weightSum="5"
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:textSize="16dp"
-                            android:textColor="#FFF"
-                            android:layout_weight="2"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:text="Cases :"
-                            />
-                        <TextView
-                            android:id="@+id/tvCases"
-                            android:textSize="16dp"
-                            android:gravity="center"
-                            android:textColor="#FFF"
-                            android:layout_weight="3"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:text="0"
-                            />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:weightSum="5"
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:textSize="16dp"
-                            android:textColor="#FFF"
-                            android:layout_width="0dp"
-                            android:layout_weight="2"
-                            android:layout_height="wrap_content"
-                            android:text="Recovered :"
-                            />
-                        <TextView
-                            android:id="@+id/tvRecovered"
-                            android:textSize="16dp"
-                            android:textColor="#FFF"
-                            android:gravity="center"
-                            android:layout_width="0dp"
-                            android:layout_weight="3"
-                            android:layout_height="wrap_content"
-                            android:text="0"
-                            />
-                    </LinearLayout>
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:weightSum="5"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:textSize="16dp"
-                            android:textColor="#FFF"
-                            android:layout_width="0dp"
-                            android:layout_weight="2"
-                            android:layout_height="wrap_content"
-                            android:text="Critical :"
-                            />
-                        <TextView
-                            android:id="@+id/tvCritical"
-                            android:textSize="16dp"
-                            android:textColor="#FFF"
-                            android:gravity="center"
-                            android:layout_width="0dp"
-                            android:layout_weight="3"
-                            android:layout_height="wrap_content"
-                            android:text="0"
-                            />
-                    </LinearLayout>
-
-
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:weightSum="5"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:textSize="16dp"
-                            android:textColor="#FFF"
-                            android:layout_weight="2"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:text="Active :"
-                            />
-                        <TextView
-                            android:id="@+id/tvActive"
-                            android:textSize="16dp"
-                            android:textColor="#FFF"
-                            android:gravity="center"
-                            android:layout_weight="3"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:text="0"
-                            />
-                    </LinearLayout>
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:weightSum="5"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:textSize="16dp"
-                            android:textColor="#FFF"
-                            android:layout_width="0dp"
-                            android:layout_weight="2"
-                            android:layout_height="wrap_content"
-                            android:text="Total Death :"
-                            />
-                        <TextView
-                            android:id="@+id/tvTotalDeath"
-                            android:textSize="16dp"
-                            android:textColor="#FFF"
-                            android:gravity="center"
-                            android:layout_width="0dp"
-                            android:layout_weight="3"
-                            android:layout_height="wrap_content"
-                            android:text="0"
-                            />
-                    </LinearLayout>
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:weightSum="5"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:textSize="16dp"
-                            android:textColor="#FFF"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="2"
-                            android:text="Today cases :"
-                            />
-                        <TextView
-                            android:id="@+id/tvTodayCases"
-                            android:textSize="16dp"
-                            android:textColor="#FFF"
-                            android:gravity="center"
-                            android:layout_width="0dp"
-                            android:layout_weight="3"
-                            android:layout_height="wrap_content"
-                            android:text="0"
-                            />
-                    </LinearLayout>
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:weightSum="5"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:textSize="16dp"
-                            android:textColor="#FFF"
-                            android:layout_width="0dp"
-                            android:layout_weight="2"
-                            android:layout_height="wrap_content"
-                            android:text="Today Death :"
-                            />
-                        <TextView
-                            android:id="@+id/tvTodayDeath"
-                            android:textSize="16dp"
-                            android:textColor="#FFF"
-                            android:gravity="center"
-                            android:layout_width="0dp"
-                            android:layout_weight="3"
-                            android:layout_height="wrap_content"
-                            android:text="0"
-                            />
-                    </LinearLayout>
-
-
-                </LinearLayout>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:layout_width="80dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_height="40dp"
-                        android:src="@drawable/baseline_accessibility_black_24dp"/>
-                </RelativeLayout>
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="30dp"
-                android:layout_height="match_parent">
-
-
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:padding="8dp"
-                        android:layout_width="80dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/coronavirus"/>
-                </RelativeLayout>
-
-            </LinearLayout>
-
-
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
 
     </RelativeLayout>
 

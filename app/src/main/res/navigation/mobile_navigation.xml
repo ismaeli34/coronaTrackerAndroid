@@ -28,4 +28,11 @@
         android:name="com.example.coronatrackerandroid.ui.notifications.GeofencingFragment"
         android:label="@string/title_geofencing"
         tools:layout="@layout/fragment_geofencing" />
+
+
+    <fragment
+        android:id="@+id/navigation_news"
+        android:name="com.example.coronatrackerandroid.ui.news.NewsFragment"
+        android:label="@string/title_news"
+        tools:layout="@layout/news_fragment" />
 </navigation>

@@ -5,21 +5,48 @@ import com.google.gson.annotations.SerializedName;
 public class GlobalStatistics {
     @SerializedName("cases")
     private int cases;
-    @SerializedName("todayCases")
-    private int todayCases;
     @SerializedName("deaths")
     private int deaths;
-    @SerializedName("todayDeaths")
-    private int todayDeaths;
     @SerializedName("recovered")
     private int recovered;
     @SerializedName("active")
     private int active;
+    @SerializedName("todayRecovered")
+    private int todayRecovered;
+//    @SerializedName("todayCases")
+//    private int todayActive;
+    @SerializedName("todayCases")
+    private int todayCases;
+    @SerializedName("todayDeaths")
+    private int todayDeaths;
+
+    public GlobalStatistics() {
+
+    }
+
     @SerializedName("critical")
     private int critical;
 
+    public int getTodayRecovered() {
+        return todayRecovered;
+    }
 
-    public GlobalStatistics(int cases, int todayCases, int deaths, int todayDeaths, int recovered,int active,int critical) {
+    public void setTodayRecovered(int todayRecovered) {
+        this.todayRecovered = todayRecovered;
+    }
+//
+//    public int getTodayActive() {
+//        return todayActive;
+//    }
+
+//    public void setTodayActive(int todayActive) {
+//        this.todayActive = todayActive;
+//    }
+
+
+
+
+    public GlobalStatistics(int cases, int todayCases, int deaths, int todayDeaths, int recovered,int active,int critical,int todayRecovered) {
         this.cases = cases;
         this.todayCases = todayCases;
         this.deaths = deaths;
@@ -27,6 +54,8 @@ public class GlobalStatistics {
         this.recovered = recovered;
         this.active = active;
         this.critical = critical;
+        this.todayRecovered = todayRecovered;
+//        this.todayActive = todayActive;
     }
 
     public int getCritical() {

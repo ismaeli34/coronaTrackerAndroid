@@ -21,6 +21,12 @@
         android:icon="@drawable/location_1"
         android:title="@string/title_geofencing" />
 
+    <item
+        android:id="@+id/navigation_news"
+        android:icon="@drawable/ic_chrome_reader_mode_black_24dp"
+        android:title="@string/title_news" />
+
+
 
 
 
