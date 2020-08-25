@@ -1,4 +1,4 @@
-package com.example.coronatrackerandroid.ui.notifications;
+package com.example.coronatrackerandroid.ui.geofencing;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
